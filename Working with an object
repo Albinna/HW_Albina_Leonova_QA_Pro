@@ -14,8 +14,18 @@ let characteristicsCar = {
     }
 };
 
-characteristicsCar.getInfo(); // Виведе всі властивості об'єкта
+characteristicsCar.getInfo(); 
 characteristicsCar.mileage = 100000;
-characteristicsCar.getInfo(); // Виведе всі властивості, включаючи нову
+characteristicsCar.getInfo(); 
+__________________________________________
+
+model: Ford Focus
+year: 2023
+price: 25000
+
+model: Ford Focus
+year: 2023
+price: 25000
+mileage: 100000
 
 
