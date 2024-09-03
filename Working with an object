@@ -1,0 +1,21 @@
+let characteristicsCar = {
+    model: 'Ford Focus',
+    year: 2023,
+    price: 25000,
+    getInfo() {
+        let info = '';
+        for (let key in this) {
+            // Перевіряємо, щоб не виводити сам метод getInfo
+            if (this[key] !== this.getInfo) {
+                info += key + ': ' + this[key] +'\n';
+            }
+        }
+        console.log(info);
+    }
+};
+
+characteristicsCar.getInfo(); // Виведе всі властивості об'єкта
+characteristicsCar.mileage = 100000;
+characteristicsCar.getInfo(); // Виведе всі властивості, включаючи нову
+
+
