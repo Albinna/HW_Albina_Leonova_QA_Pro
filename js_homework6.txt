@@ -1,0 +1,66 @@
+const company = {
+    name: 'Велика Компанія',
+    type: 'Головна компанія',
+    platform: 'Платформа для продажу квитків',
+    sellsSolution: 'Рішення для продажу квитків',
+    clients: [
+      {
+        name: 'Клієнт 1',
+        type: 'subCompany',
+        uses: 'ПО для продажу квитків',
+        sells: 'Рішення для продажу квитків',
+        partners: [
+          {
+            name: 'Клієнт 1.1',
+            type: 'subSubCompany',
+            uses: 'Рішення для продажу квитків',
+            sells: 'Рішення для продажу квитків',
+          },
+          {
+            name: 'Клієнт 1.2',
+            type: 'subSubCompany',
+            uses: 'Рішення для продажу квитків',
+            sells: 'Рішення для продажу квитків',
+            partners: [
+              {
+                name: 'Клієнт 1.2.3',
+                type: 'subSubCompany',
+                uses: 'Рішення для продажу квитків',
+                sells: 'Рішення для продажу квитків',
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: 'Клієнт 2',
+        type: 'subCompany',
+        uses: 'ПО для продажу квитків',
+        sells: 'Рішення для продажу квитків'
+      }
+    ]
+  };
+  
+  function findValueByKey(companyName, clients) {
+
+    for (let client of clients) {
+      if (client.name === companyName) {
+        return client; // Повертаємо знайдену компанію
+      }
+      
+      if (client.partners) {
+        const result = findValueByKey(companyName, client.partners); // Рекурсивний виклик для партнерів
+        if (result) {
+          return result;
+        }
+      }
+    }
+    return null; // Якщо компанія не знайдена
+  }
+  
+  // Виклики функції
+  console.log(findValueByKey('Клієнт 1', company.clients)); 
+  console.log(findValueByKey('Клієнт 1.2.3', company.clients)); 
+  console.log(findValueByKey('Клієнт 2', company.clients)); 
+
+  
