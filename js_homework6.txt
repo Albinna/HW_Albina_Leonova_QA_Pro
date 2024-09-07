@@ -45,11 +45,11 @@ const company = {
 
     for (let client of clients) {
       if (client.name === companyName) {
-        return client; // Повертаємо знайдену компанію
+        return client; 
       }
       
       if (client.partners) {
-        const result = findValueByKey(companyName, client.partners); // Рекурсивний виклик для партнерів
+        const result = findValueByKey(companyName, client.partners); 
         if (result) {
           return result;
         }
